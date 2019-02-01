@@ -96,12 +96,10 @@ class SalaryReportCommand extends Command implements ContainerAwareInterface
 	protected function getBonusDates()
 	{
 		$bonusDate = array();
-		//To check for another year starting from January
-		$currentMonth = 1;
-		//$currentMonth = date("n");
-		//To check for another year e.g. 2019
-		$currentYear = 2024;
-		//$currentYear = date("Y");
+		
+		$currentMonth = date("n");
+		$currentYear = date("Y");
+
 		while ( $currentMonth <= 12 ) {
 			$processingDate = date('d-m-Y', strtotime("15-".$currentMonth."-".$currentYear));
 			$processingDate = $this->getValidBonusDate($processingDate);
@@ -122,11 +120,9 @@ class SalaryReportCommand extends Command implements ContainerAwareInterface
 	{
 		$salaryDate = array();
 		//To check for another year starting from January
-		$currentMonth = 1;
-		//$currentMonth = date("n");
-		//To check for another year e.g. 2019
-		$currentYear = 2024;
-		//$currentYear = date("Y");
+		$currentMonth = date("n");
+		$currentYear = date("Y");
+		
 		while ( $currentMonth <= 12 ) {
 			$lastDate = date('t', strtotime("1-".$currentMonth."-".$currentYear));
 			$processingDate = date('d-m-Y', strtotime($lastDate."-".$currentMonth."-".$currentYear));
